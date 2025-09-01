@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CHARUSAT — Student Feedback & Department Review</title>
+  <link rel="stylesheet" href="./stylesheets/styles.css" />
+</head>
+<body class="charusat-bg">
+  <main class="center">
+    <div class="card">
+      <div class="charusat-header">
+        <img src="./images/image.png" alt="CHARUSAT Logo" class="charusat-logo" />
+        <h1>Share Your Experience about CHARUSAT  </h1>
+      </div>
+      <div class="charusat-desc">We welcome feedback from students, parents, alumni, and visitors. Your input helps us understand how CHARUSAT is perceived and how we can improve. Thank you for sharing your honest experience.</div>
+      <form action="/feedbackform" method="post" id="reviewForm" class="charusat-form" autocomplete="off" novalidate aria-label="CHARUSAT Public Review Form">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input id="fullName" type="text" name="name" maxlength="100" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" maxlength="100" required />
+        </div>
+        <div class="form-group">
+          <label for="role">Your Role <span aria-hidden="true" style="color:#c00">*</span></label>
+          <select id="role" name="role" required>
+            <option value="">Select Role</option>
+            <option>Student (other college)</option>
+            <option>Parent</option>
+            <option>Alumni (other)</option>
+            <option>Visitor</option>
+            <option>Industry Professional</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group" id="otherRoleGroup" style="display:none;">
+          <label for="otherRole">Please specify your role</label>
+          <input id="otherRole" name="otherRole" type="text" maxlength="100" />
+        </div>
+        <div class="form-group">
+          <label for="department">Department/School you are reviewing <span aria-hidden="true" style="color:#c00">*</span></label>
+          <select id="department" name="department" required>
+            <option value="">Select Department/School</option>
+            <option>DEPSTAR (Engineering)</option>
+            <option>Pharmacy</option>
+            <option>Management</option>
+            <option>Applied Sciences</option>
+            <option>Nursing</option>
+            <option>Physiotherapy</option>
+            <option>Others</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Visit/Interaction Type <span aria-hidden="true" style="color:#c00">*</span></label>
+          <div class="checkbox-tags" id="visitTypes">
+            <label><input type="checkbox" value="Campus Visit" /> Campus Visit</label>
+            <label><input type="checkbox" value="Admissions" /> Admissions</label>
+            <label><input type="checkbox" value="Seminar/Workshop" /> Seminar/Workshop</label>
+            <label><input type="checkbox" value="Online Event" /> Online Event</label>
+            <label><input type="checkbox" value="Friend/Relative studies here" /> Friend/Relative studies here</label>
+            <label><input type="checkbox" value="Other" /> Other</label>
+          </div>
+        </div>
+        <div class="form-group rating-group">
+          <label>Teaching Quality <span aria-hidden="true" style="color:#c00">*</span></label>
+          <div class="star-widget" data-category="teaching" aria-label="Teaching Quality rating" tabindex="0"></div>
+          <input type="text" class="rating-comment" id="teachingComment" maxlength="100" placeholder="Comment (optional)" aria-label="Teaching Quality comment" />
+        </div>
+        <div class="form-group rating-group">
+          <label>Lab & Practical Facilities <span aria-hidden="true" style="color:#c00">*</span></label>
+          <div class="star-widget" data-category="lab" aria-label="Lab & Practical Facilities rating" tabindex="0"></div>
+          <input type="text" class="rating-comment" id="labComment" maxlength="100" placeholder="Comment (optional)" aria-label="Lab & Practical Facilities comment" />
+        </div>
+        <div class="form-group rating-group">
+          <label>Course Content & Relevance <span aria-hidden="true" style="color:#c00">*</span></label>
+          <div class="star-widget" data-category="content" aria-label="Course Content & Relevance rating" tabindex="0"></div>
+          <input type="text" class="rating-comment" id="contentComment" maxlength="100" placeholder="Comment (optional)" aria-label="Course Content & Relevance comment" />
+        </div>
+        <div class="form-group rating-group">
+          <label>Assessment & Feedback <span aria-hidden="true" style="color:#c00">*</span></label>
+          <div class="star-widget" data-category="assessment" aria-label="Assessment & Feedback rating" tabindex="0"></div>
+          <input type="text" class="rating-comment" id="assessmentComment" maxlength="100" placeholder="Comment (optional)" aria-label="Assessment & Feedback comment" />
+        </div>
+        <div class="form-group rating-group">
+          <label>Administrative Support <span aria-hidden="true" style="color:#c00">*</span></label>
+          <div class="star-widget" data-category="admin" aria-label="Administrative Support rating" tabindex="0"></div>
+          <input type="text" class="rating-comment" id="adminComment" maxlength="100" placeholder="Comment (optional)" aria-label="Administrative Support comment" />
+        </div>
+        <div class="form-group rating-group">
+          <label>Overall Satisfaction <span aria-hidden="true" style="color:#c00">*</span></label>
+          <div class="star-widget" data-category="overall" aria-label="Overall Satisfaction rating" tabindex="0"></div>
+          <input type="text" class="rating-comment" id="overallComment" maxlength="100" placeholder="Comment (optional)" aria-label="Overall Satisfaction comment" />
+        </div>
+        <div class="form-group">
+          <label for="detailedFeedback">Detailed feedback (optional)</label>
+          <textarea id="detailedFeedback" name="detailedFeedback" maxlength="3000" rows="4" aria-describedby="charCount"></textarea>
+          <div class="char-count" id="charCount">0 / 3000</div>
+        </div>
+        <div class="form-group">
+          <label>Common praise/issues (select all that apply):</label>
+          <div class="checkbox-tags">
+            <label><input type="checkbox" value="Good teaching" /> Good teaching</label>
+            <label><input type="checkbox" value="Needs more labs" /> Needs more labs</label>
+            <label><input type="checkbox" value="Exam scheduling issues" /> Exam scheduling issues</label>
+            <label><input type="checkbox" value="Friendly staff" /> Friendly staff</label>
+            <label><input type="checkbox" value="Infrastructure problems" /> Infrastructure problems</label>
+            <label><input type="checkbox" value="Helpful faculty" /> Helpful faculty</label>
+            <label><input type="checkbox" value="Clean campus" /> Clean campus</label>
+            <label><input type="checkbox" value="Other" /> Other</label>
+          </div>
+        </div>
+        <div class="form-group switch-group">
+          <label for="anonToggle">Submit anonymously</label>
+          <input type="checkbox" id="anonToggle" />
+        </div>
+        <div class="form-group consent-group">
+          <input type="checkbox" id="consentCheck" required />
+          <label for="consentCheck">I confirm this feedback is honest and I have read the privacy note. <span aria-hidden="true" style="color:#c00">*</span></label>
+        </div>
+        <div class="form-errors" id="formErrors" aria-live="polite"></div>
+        <button type="submit" class="charusat-submit" id="submitBtn">Submit Feedback</button>
+      </form>
+      <div id="successCard" class="gf-success-card" style="display:none;">
+        <div class="gf-topbar"></div>
+        <div class="gf-content">
+          <h1 class="gf-heading">You've already responded</h1>
+          <div class="gf-subtext">You can fill out this form only once.</div>
+          <div class="gf-help">Try contacting the <a href="mailto:feedback@charusat.edu.in" class="gf-link">owner of the form</a> if you think this is a mistake.</div>
+        </div>
+        <div class="gf-footer">This form was created inside of Charotar University of Science &amp; Technology.</div>
+      </div>
+      <div id="clearModal" class="modal" style="display:none;">
+        <div class="modal-content">
+          <p>Are you sure you want to clear all locally stored feedback responses? This cannot be undone.</p>
+          <button id="modalYes">Yes, clear all</button>
+          <button id="modalNo">Cancel</button>
+        </div>
+      </div>
+      <footer class="charusat-footer">For privacy concerns contact: feedback@charusat.edu.in (placeholder)</footer>
+    </div>
+  </main>
+
+  <style>
+    body.gf-bg { background: #f6f3fc !important; }
+    .gf-success-card {
+      max-width: 700px;
+      margin: 48px auto 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px 0 rgba(60,40,120,0.08), 0 1.5px 6px 0 rgba(60,40,120,0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      overflow: hidden;
+      min-height: 340px;
+    }
+    .gf-topbar {
+      height: 8px;
+      background: #673ab7;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      width: 100%;
+    }
+    .gf-content {
+      padding: 48px 40px 32px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1 1 auto;
+    }
+    .gf-heading {
+      font-family: 'Roboto', 'Inter', system-ui, sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 0.5em;
+      margin-top: 0;
+      text-align: center;
+    }
+    .gf-subtext {
+      font-family: 'Roboto', 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 1.2em;
+      text-align: center;
+    }
+    .gf-help {
+      font-family: 'Roboto', 'Inter', system-ui, sans-serif;
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+    }
+    .gf-link {
+      color: #673ab7;
+      text-decoration: none;
+      transition: text-decoration 0.2s, color 0.2s;
+    }
+    .gf-link:hover, .gf-link:focus {
+      text-decoration: underline;
+      color: #4b2991;
+    }
+    .gf-footer {
+      font-family: 'Roboto', 'Inter', system-ui, sans-serif;
+      font-size: 13px;
+      color: #777;
+      text-align: center;
+      padding: 18px 0 14px 0;
+      background: none;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }
+    @media (max-width: 600px) {
+      .gf-success-card {
+        max-width: 100vw;
+        margin: 0;
+        border-radius: 0;
+        min-height: 100vh;
+        box-shadow: none;
+      }
+      .gf-content {
+        padding: 32px 10vw 24px 10vw;
+      }
+    }
+  </style>
+  <script src="app.js"></script>
+</body>
+<script>
+// Switch to Google Forms style background after submit
+function setGFBackground() {
+  document.body.classList.add('gf-bg');
+}
+// --- Inline JS for feedback form ---
+document.addEventListener('DOMContentLoaded', function() {
+  // --- Star rating widgets ---
+  function createStarWidget(container) {
+    let selected = 0;
+    container.innerHTML = '';
+    for (let i = 1; i <= 5; ++i) {
+      const star = document.createElement('span');
+      star.className = 'star';
+      star.innerHTML = '&#9733;';
+      star.tabIndex = 0;
+      star.setAttribute('role', 'radio');
+      star.setAttribute('aria-checked', 'false');
+      star.setAttribute('aria-label', i + ' star');
+      star.addEventListener('click', () => set(i));
+      star.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { set(i); e.preventDefault(); }
+      });
+      container.appendChild(star);
+    }
+    function highlight(val) {
+      Array.from(container.children).forEach((star, idx) => {
+        star.classList.toggle('selected', idx < val);
+        star.setAttribute('aria-checked', idx + 1 === val ? 'true' : 'false');
+      });
+    }
+    function set(val) {
+      selected = val;
+      highlight(val);
+      container.dataset.selected = val;
+      validateForm();
+    }
+    container.addEventListener('mouseleave', () => highlight(selected));
+    container.dataset.selected = 0;
+    return { get: () => selected, set };
+  }
+  const starCategories = ['teaching','lab','content','assessment','admin','overall'];
+  const starWidgets = {};
+  starCategories.forEach(cat => {
+    const container = document.querySelector(`.star-widget[data-category="${cat}"]`);
+    if (container) starWidgets[cat] = createStarWidget(container);
+  });
+
+  // --- Role: show/hide other role field ---
+  const roleSelect = document.getElementById('role');
+  const otherRoleGroup = document.getElementById('otherRoleGroup');
+  roleSelect.addEventListener('change', function() {
+    otherRoleGroup.style.display = (roleSelect.value === 'Other') ? '' : 'none';
+    validateForm();
+  });
+
+  // --- Anonymity toggle ---
+  const anonToggle = document.getElementById('anonToggle');
+  const fullNameField = document.getElementById('fullName');
+  anonToggle.addEventListener('change', function() {
+    fullNameField.parentElement.style.display = anonToggle.checked ? 'none' : '';
+    validateForm();
+  });
+
+  // --- Character count for detailed feedback ---
+  const detailedFeedback = document.getElementById('detailedFeedback');
+  const charCount = document.getElementById('charCount');
+  detailedFeedback.addEventListener('input', function() {
+    charCount.textContent = detailedFeedback.value.length + ' / 3000';
+    validateForm();
+  });
+  charCount.textContent = detailedFeedback.value.length + ' / 3000';
+
+  // --- Form validation ---
+  const department = document.getElementById('department');
+  const consentCheck = document.getElementById('consentCheck');
+  const submitBtn = document.getElementById('submitBtn');
+  const formErrors = document.getElementById('formErrors');
+  function getCheckedTags() {
+    return Array.from(document.querySelectorAll('.checkbox-tags input[type="checkbox"]:checked')).map(cb => cb.value);
+  }
+  function validateForm() {
+    let errors = [];
+    if (!roleSelect.value) errors.push('Select your role.');
+    if (roleSelect.value === 'Other' && !document.getElementById('otherRole').value.trim()) errors.push('Specify your role.');
+    if (!department.value) errors.push('Select a department/school.');
+    if (!getCheckedTags().length) errors.push('Select at least one visit/interaction type.');
+    let anyRating = false;
+    for (const cat of starCategories) {
+      if (starWidgets[cat] && starWidgets[cat].get() > 0) anyRating = true;
+    }
+    if (!anyRating) errors.push('Please provide at least one rating.');
+    if (detailedFeedback.value.length > 3000) errors.push('Detailed feedback too long.');
+    if (!consentCheck.checked) errors.push('You must confirm the consent checkbox.');
+    formErrors.innerHTML = errors.length ? errors.map(e => `<div>${e}</div>`).join('') : '';
+    submitBtn.disabled = errors.length > 0;
+    return errors.length === 0;
+  }
+  [roleSelect, department, consentCheck].forEach(el => el.addEventListener('change', validateForm));
+  document.querySelectorAll('.checkbox-tags input[type="checkbox"]').forEach(cb => cb.addEventListener('change', validateForm));
+  document.querySelectorAll('.rating-comment').forEach(el => el.addEventListener('input', validateForm));
+  validateForm();
+
+  // --- Submission ---
+  const reviewForm = document.getElementById('reviewForm');
+  const successCard = document.getElementById('successCard');
+  const summaryFields = document.getElementById('summaryFields');
+    // Save to localStorage
+    let arr = [];
+    try { arr = JSON.parse(localStorage.getItem('charusat_reviews')||'[]'); } catch {}
+    arr.push(data);
+    localStorage.setItem('charusat_reviews', JSON.stringify(arr));
+    // Show summary
+    reviewForm.style.display = 'none';
+    successCard.style.display = '';
+    let html = `<div><strong>Department:</strong> ${data.department}</div>`;
+    html += `<div><strong>Role:</strong> ${data.role}</div>`;
+    if (!data.anonymous) {
+      html += `<div><strong>Name:</strong> ${data.name || '(not provided)'}</div>`;
+    } else {
+      html += `<div><strong>Submitted anonymously</strong></div>`;
+    }
+    html += `<div><strong>Visit/Interaction:</strong> ${data.visitTypes.join(', ')}</div>`;
+    html += `<div><strong>Ratings:</strong><ul style="margin:0 0 0 18px;">`;
+    starCategories.forEach(cat => {
+      if (data.ratings[cat]) html += `<li>${cat.charAt(0).toUpperCase()+cat.slice(1)}: ${data.ratings[cat]} star(s)${data.comments[cat] ? ' — '+data.comments[cat] : ''}</li>`;
+    });
+    html += `</ul></div>`;
+    if (data.detailed) html += `<div><strong>Detailed feedback:</strong> ${data.detailed}</div>`;
+    summaryFields.innerHTML = html;
+  });
+
+  // --- Success card actions ---
+  const returnBtn = document.getElementById('returnBtn');
+  if (returnBtn) {
+    returnBtn.addEventListener('click', () => {
+      reviewForm.reset();
+      successCard.style.display = 'none';
+      reviewForm.style.display = '';
+      // Reset stars
+      starCategories.forEach(cat => starWidgets[cat]?.set(0));
+      charCount.textContent = '0 / 3000';
+      validateForm();
+    });
+  }
+</script>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Submitted - CHARUSAT</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #f6f3fc;
+      font-family: 'Roboto', 'Inter', system-ui, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+    }
+    .gf-success-card {
+      max-width: 700px;
+      margin: 48px auto 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px 0 rgba(60,40,120,0.08), 0 1.5px 6px 0 rgba(60,40,120,0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      overflow: hidden;
+      min-height: 340px;
+    }
+    .gf-topbar {
+      height: 8px;
+      background: #673ab7;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      width: 100%;
+    }
+    .gf-content {
+      padding: 48px 40px 32px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1 1 auto;
+    }
+    .gf-heading {
+      font-size: 24px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 0.5em;
+      margin-top: 0;
+      text-align: center;
+    }
+    .gf-subtext {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 1.2em;
+      text-align: center;
+    }
+    .gf-help {
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+    }
+    .gf-link {
+      color: #673ab7;
+      text-decoration: none;
+      transition: text-decoration 0.2s, color 0.2s;
+    }
+    .gf-link:hover, .gf-link:focus {
+      text-decoration: underline;
+      color: #4b2991;
+    }
+    .gf-footer {
+      font-size: 13px;
+      color: #777;
+      text-align: center;
+      padding: 18px 0 14px 0;
+      background: none;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }
+    @media (max-width: 600px) {
+      .gf-success-card {
+        max-width: 100vw;
+        margin: 0;
+        border-radius: 0;
+        min-height: 100vh;
+        box-shadow: none;
+      }
+      .gf-content {
+        padding: 32px 10vw 24px 10vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="gf-success-card">
+    <div class="gf-topbar"></div>
+    <div class="gf-content">
+      <h1 class="gf-heading">You've already responded</h1>
+      <div class="gf-subtext">You can fill out this form only once.</div>
+      <div class="gf-help">Try contacting the <a href="mailto:feedback@charusat.edu.in" class="gf-link">owner of the form</a> if you think this is a mistake.</div>
+    </div>
+    <div class="gf-footer">This form was created inside of Charotar University of Science &amp; Technology.</div>
+  </div>
+</body>
+</html>

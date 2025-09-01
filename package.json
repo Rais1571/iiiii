@@ -1,0 +1,19 @@
+{
+  "name": "phishing_awareness_demo",
+  "version": "1.0.0",
+  "description": "1. Download all files (`index.html`, `review.html`, `styles.css`, `app.js`) into a folder.\r 2. Open `index.html` in your browser (double-click or right-click → Open with browser).\r 3. Log in with any username/password (no real authentication).\r 4. Fill out the feedback form and submit. All data is stored only in your browser (localStorage).",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "mongoose": "^8.18.0"
+  }
+}
