@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 let userSchema=mongoose.Schema({
-    email:String,   
+    username:String,   
     password:String,
     feedback:[{
         type:mongoose.Schema.Types.ObjectId,
