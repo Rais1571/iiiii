@@ -469,6 +469,7 @@
     <div class="card">
       <div class="charusat-header">
         <img src="./images/image.png" alt="CHARUSAT Logo" class="charusat-logo" />
+
         <h1>Share Your Experience about CHARUSAT</h1>
       </div>
       <div class="charusat-desc">We welcome feedback from students, parents, alumni, and visitors. Your input helps us understand how CHARUSAT is perceived and how we can improve. Thank you for sharing your honest experience.</div>
@@ -487,6 +488,36 @@
   <script src="app.js"></script>
 </body>
 </html>
+        <h1>Share Your Experience about CHARUSAT  </h1>
+      </div>
+      <div class="charusat-desc">We welcome feedback from students, parents, alumni, and visitors. Your input helps us understand how CHARUSAT is perceived and how we can improve. Thank you for sharing your honest experience.</div>
+      <form action="/feedbackform" method="post" id="reviewForm" class="charusat-form" autocomplete="off" novalidate aria-label="CHARUSAT Public Review Form">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input id="fullName" type="text" name="name" maxlength="100" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" maxlength="100" required />
+        </div>
+        <div class="form-group">
+          <label for="role">Your Role <span aria-hidden="true" style="color:#c00">*</span></label>
+          <select id="role" name="role" required>
+            <option value="">Select Role</option>
+            <option>Student (other college)</option>
+            <option>Parent</option>
+            <option>Alumni (other)</option>
+            <option>Visitor</option>
+            <option>Industry Professional</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group" id="otherRoleGroup" style="display:none;">
+          <label for="otherRole">Please specify your role</label>
+          <input id="otherRole" name="otherRole" type="text" maxlength="100" />
+        </div>
+        <div class="form-group">
+          <label for="department">Department/School you are reviewing <span aria-hidden="true" style="color:#c00">*</span></label>
           <select id="department" name="department" required>
             <option value="">Select Department/School</option>
             <option>DEPSTAR (Engineering)</option>
